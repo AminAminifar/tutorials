@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>آموزش من - فارسی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --header-height: 64px;
+    }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: row-reverse; /* nav on right */
+      min-height: 100vh;
+      padding-top: var(--header-height);
+      background: #fff;
+    }
+
+    /* Fixed top header */
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: #333;
+      color: white;
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      direction: ltr; /* Keep links left-to-right */
+      z-index: 1000;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* Sidebar navigation */
+    nav {
+      width: 220px;
+      background: #f7f7f7;
+      padding: 1rem;
+      border-left: 1px solid #ddd;
+      box-sizing: border-box;
+      text-align: right;
+      position: fixed;
+      top: var(--header-height);
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+    }
+
+    nav h3 {
+      margin-top: 0;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 2rem;
+      box-sizing: border-box;
+      margin-right: 240px; /* space for nav */
+      text-align: center;
+    }
+
+    .content {
+      direction: rtl;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index_en.html">English</a>
+    <a href="index_fa.html">خانه</a>
+  </header>
+
+  <nav>
+    <h3>فهرست</h3>
+    <ul>
+      <li><a href="#">مقدمه</a></li>
+      <li><a href="#">نصب</a></li>
+      <li><a href="#">نمونه‌ها</a></li>
+    </ul>
+  </nav>
+
+<!--!
+  <main>
+    <div class="content">
+      <h1>به آموزش من خوش آمدید</h1>
+      <p>این نسخهٔ فارسی سایت شما است.</p>
+    </div>
+  </main>
+ -->
+  
+ <main id="main-content">
+  <!-- Persian content will be loaded here -->
+</main>
+
+<script>
+  // Dynamically load the content from content_fa.html
+  fetch("content_fa.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("main-content").innerHTML = html;
+    })
+    .catch(err => {
+      document.getElementById("main-content").innerHTML =
+        "<p>خطا در بارگذاری محتوا.</p>";
+      console.error(err);
+    });
+</script>
+
+</body>
+</html>
